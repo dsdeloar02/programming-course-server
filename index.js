@@ -9,6 +9,7 @@ app.use(cors())
 const categories = require('./data/categories.json')
 const courses = require('./data/courses.json')
 const carts = require('./data/cart.json')
+const members = require('./data/teammember.json')
 
 app.get('/', (req, res) => {
     res.send('Api is Running');
@@ -43,6 +44,11 @@ app.get('/cart/:id', (req, res) => {
     const id = req.params.id;
     const singleCart = carts.find(p => p.id === id);
     res.send(singleCart);
+})
+
+
+app.get('/teammembers', (req, res) => {
+    res.send(members)
 })
 
 app.listen(port, () => {
